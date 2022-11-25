@@ -1,20 +1,22 @@
 {
-  "name": "as-template",
+  "name": "@nice1/profiles",
   "version": "0.0.1",
   "description": "assemblyscript smart contracts template",
   "author": "learnforpractice <learnforpractice@gmail.com>",
   "license": "MIT",
+  "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/uuosio/as-template.git"
+    "url": "https://github.com/nice1-blockchain/profiles.git"
   },
   "bugs": {
-    "url": "https://github.com/uuosio/as-template/issues"
+    "url": "https://github.com/nice1-blockchain/profiles/issues"
   },
   "keywords": [
     "wasm",
     "webassembly",
-    "assemblyscript"
+    "assemblyscript",
+    "eosio"
   ],
   "scripts": {
     "test": "yarn build && jest --no-cache",
@@ -45,9 +47,6 @@
     "typescript": "^4.7.4"
   },
   "files": [
-    "assembly/",
-    "README.md",
-    "package.json",
-    "yarn.lock"
+    "assembly/"
   ]
 }
