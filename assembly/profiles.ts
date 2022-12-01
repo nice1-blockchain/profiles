@@ -11,9 +11,6 @@ class Profile extends Table {
 }
 
 function isValidAvatar(avatar: string = '') : bool {
-  if (!avatar.length) {
-    return true
-  }
   const prefix = avatar.substr(avatar.indexOf(':'))
 
   return prefix === 'ipfs' || prefix === 'https' || prefix === 'http'
@@ -24,7 +21,9 @@ class Nice1Profiles extends Contract {
   @action('update')
   update(user: Name, alias: string = '', avatar: string = ''): void {
     requireAuth(user)
-    check(!isValidAvatar(avatar), 'Avatar has to be either ipfs:// or https://')
+    if (avatar.length) {
+      check(!isValidAvatar(avatar), 'Avatar has to be either ipfs:// or https://')
+    }
 
     const mi = Profile.new(this.receiver)
     const it = mi.find(user.N)
