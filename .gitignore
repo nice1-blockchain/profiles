@@ -1,2 +1,16 @@
-*.abi
+# Tempfiles
+__pycache__
+.DS_Store
+logs
+*.log
 *.wasm
+*.wast
+.vscode
+*-debug.log*
+*-error.log*
+*-lock.json
+node_modules
+
+# build files
+assembly/target
+assembly/profiles
