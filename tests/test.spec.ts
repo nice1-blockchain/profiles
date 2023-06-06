@@ -51,3 +51,17 @@ it('returns error if sending incorrect avatar', async () => {
     expect(errormsg).not.toBeUndefined()
     expect(errormsg).toMatch(/^Avatar has to be either/)
 })
+
+
+it('returns error if sending incorrect alias', async () => {
+    const ret = await tester.pushAction('hello', 'update', {
+        user: 'hello',
+        alias: 'alias?alias?alias?',
+        avatar: 'https://testing.com',
+    }, {'hello': 'active'})
+    const { stack } : { stack : any[] } = (ret.except as any)
+    const errormsg = stack.filter((s: any) => s.context.level === 'error').pop().data.s
+
+    expect(errormsg).not.toBeUndefined()
+    expect(errormsg).toMatch(/^Alias must be less than/)
+})
